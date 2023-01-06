@@ -1,11 +1,11 @@
 {
-  "id": "Ramy",
-  "name": "Ramy",
+  "id": "AppName",
+  "name": "ReplaceAppName",
   "url": "http://localhost:3000/",
   "params": {
     "dappUrl": "http://localhost:3000/",
-    "nanoApp": "Ramy",
-    "dappName": "Ramy",
+    "nanoApp": "ReplaceAppName",
+    "dappName": "ReplaceAppName",
     "networks": [
       {
         "currency": "ethereum",
@@ -19,16 +19,16 @@
   "apiVersion": "^2.0.0",
   "manifestVersion": "1",
   "branch": "stable",
-  "categories": ["staking"],
+  "categories": ["ReplaceCatagories"],
   "currencies": "*",
   "content": {
     "shortDescription": {
-      "en": "Kiln is Ledger’s native ETH staking partner. Stake ETH in a couple of clicks by becoming your own validator. Earn rewards for helping secure the Ethereum blockchain."
+      "en": "Desc"
     },
     "description": {
-      "en": "Kiln is Ledger’s native ETH staking partner. Stake ETH in a couple of clicks by becoming your own validator. Earn rewards for helping secure the Ethereum blockchain."
+      "en": "Desc"
     }
   },
-  "permissions": ["listCurrencies"],
+  "permissions": ["listCurrencies", "getAccounts"],
   "domains": ["http://*"]
 }
