@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
         import { WindowMessageTransport, WalletAPIClient, Account } from '@ledgerhq/wallet-api-client';
         import { useEffect, useRef, useCallback } from 'react';
       import { render as renderReactDom} from "react-dom"; 
+     
       const App = () => { 
-
-         const walletInstance = useRef(null);
-        let accounts = [];
+        const [response, setResponse] = useState({
+          accounts: [],
+        })
+        const walletInstance = useRef(null);
         let currencies;
         let capabilities;
       
@@ -18,12 +20,13 @@ import React from "react";
         const getAccounts = async () => {
           if (walletInstance.current) {
             try {
-              accounts = await walletInstance.current.listAccounts();
+              setResponse(await walletInstance.current.listAccounts());
             } catch (e) {
               console.log(e);
             }
           }
         };
+        
       
         const getCurrencies = async () => {
           if (walletInstance.current) {
@@ -50,7 +53,7 @@ import React from "react";
         <button onClick={getCurrencies}>getCurrencies</button>
         <button onClick={getCapabilities}>getCapabilities</button>
         <div style={{ color: 'white', border: 'solid grey 1px', marginTop: '10px', backgroundColor: '#111', padding: '10px' }}>
-              {accounts.result?.map((account, index) => {
+              {response.accounts.result?.map((account, index) => {
                 return <p key={index}>{account.name}: {account.address}</p>;
               })}
             </div></div>)
